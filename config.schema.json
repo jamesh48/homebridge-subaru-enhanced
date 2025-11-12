@@ -1,6 +1,6 @@
 {
-  "pluginAlias": "ExampleHomebridgePlugin",
-  "pluginType": "platform",
+  "pluginAlias": "HomebridgeSubaru",
+  "pluginType": "accessory",
   "singular": true,
   "strictValidation": false,
   "schema": {
@@ -10,7 +10,70 @@
         "title": "Name",
         "type": "string",
         "required": true,
-        "default": "Example Dynamic Platform"
+        "default": "Outback"
+      },
+      "deviceId": {
+        "title": "Device ID",
+        "type": "string",
+        "required": true,
+        "default": ""
+      },
+      "username": {
+        "title": "Username",
+        "type": "string",
+        "required": true,
+        "default": ""
+      },
+      "password": {
+        "title": "Password",
+        "type": "string",
+        "required": true,
+        "default": ""
+      },
+      "lastSelectedVehicleKey": {
+        "title": "Last Selected Vehicle Key",
+        "type": "string",
+        "default": "",
+        "required": true
+      },
+      "pin": {
+        "title": "Pin Code",
+        "type": "string",
+        "default": "0000",
+        "required": true
+      },
+      "prefix": {
+        "title": "Services Prefix",
+        "type": "string",
+        "default": "",
+        "description": "Prefix for all services. Useful if you have multiple Subaru vehicles. Example: 'Climate' becomes 'Outback Wilderness Climate'."
+      },
+      "remoteStartPresets": {
+        "title": "Remote Start Preset",
+        "type": "string",
+        "enum": ["Defrost", "Heat", "Cool"],
+        "default": "heat",
+        "description": "Climate preset for remote start. Defaults to Heat if not selected."
+      },
+      "horn": {
+        "title": "Horn on Remote Start",
+        "type": "boolean",
+        "default": true,
+        "description": "Sound the horn when remote starting the vehicle"
+      },
+      "runTimeMinutes": {
+        "title": "Remote Start Run Time (minutes)",
+        "type": "number",
+        "enum": [5, 10],
+        "default": 10,
+        "description": "How long the engine should run"
+      },
+      "delay": {
+        "title": "Remote Start Delay (minutes)",
+        "type": "number",
+        "enum": [0, 1, 5, 10],
+        "default": 0,
+        "description": "Delay before starting the engine"
       }
     }
   }
