@@ -1,5 +1,8 @@
-import { Service } from "homebridge";
-import { SubaruPluginService, SubaruPluginServiceContext } from "./SubaruPluginService.js";
+import { Service } from 'homebridge';
+import {
+  SubaruPluginService,
+  SubaruPluginServiceContext,
+} from './SubaruPluginService.js';
 
 export class LockMechanismService extends SubaruPluginService {
   public service: Service;
@@ -12,18 +15,21 @@ export class LockMechanismService extends SubaruPluginService {
     const { hap } = context;
 
     // Create two Switch services - one for Lock and one for Unlock
-    this.lockService = new hap.Service.Switch(
-      this.serviceName("Lock"),
-      "lock",
-    );
+    this.lockService = new hap.Service.Switch(this.serviceName('Lock'), 'lock');
 
     this.unlockService = new hap.Service.Switch(
-      this.serviceName("Unlock"),
-      "unlock",
+      this.serviceName('Unlock'),
+      'unlock',
     );
 
-    this.lockService.setCharacteristic(hap.Characteristic.ConfiguredName, this.serviceName("Lock"));
-    this.unlockService.setCharacteristic(hap.Characteristic.ConfiguredName, this.serviceName("Unlock"));
+    this.lockService.setCharacteristic(
+      hap.Characteristic.ConfiguredName,
+      this.serviceName('Lock'),
+    );
+    this.unlockService.setCharacteristic(
+      hap.Characteristic.ConfiguredName,
+      this.serviceName('Unlock'),
+    );
 
     // Set up the Lock button
     this.lockService
@@ -37,7 +43,9 @@ export class LockMechanismService extends SubaruPluginService {
           await this.lockVehicle();
           // Turn the switch back off after a brief delay
           setTimeout(() => {
-            this.lockService.getCharacteristic(hap.Characteristic.On).updateValue(false);
+            this.lockService
+              .getCharacteristic(hap.Characteristic.On)
+              .updateValue(false);
           }, 1000);
         }
       });
@@ -54,7 +62,9 @@ export class LockMechanismService extends SubaruPluginService {
           await this.unlockVehicle();
           // Turn the switch back off after a brief delay
           setTimeout(() => {
-            this.unlockService.getCharacteristic(hap.Characteristic.On).updateValue(false);
+            this.unlockService
+              .getCharacteristic(hap.Characteristic.On)
+              .updateValue(false);
           }, 1000);
         }
       });
@@ -69,11 +79,11 @@ export class LockMechanismService extends SubaruPluginService {
   private async lockVehicle(): Promise<void> {
     const { subaru, log } = this.context;
     try {
-      log.info("Locking vehicle");
+      log.info('Locking vehicle');
       await subaru.lock();
-      log.info("Vehicle locked successfully");
+      log.info('Vehicle locked successfully');
     } catch (error) {
-      log.error("Failed to lock vehicle:", error);
+      log.error('Failed to lock vehicle:', error);
       throw error;
     }
   }
@@ -84,11 +94,11 @@ export class LockMechanismService extends SubaruPluginService {
   private async unlockVehicle(): Promise<void> {
     const { subaru, log } = this.context;
     try {
-      log.info("Unlocking vehicle");
+      log.info('Unlocking vehicle');
       await subaru.unlock();
-      log.info("Vehicle unlocked successfully");
+      log.info('Vehicle unlocked successfully');
     } catch (error) {
-      log.error("Failed to unlock vehicle:", error);
+      log.error('Failed to unlock vehicle:', error);
       throw error;
     }
   }

@@ -1,5 +1,8 @@
-import { Service } from "homebridge";
-import { SubaruPluginService, SubaruPluginServiceContext } from "./SubaruPluginService.js";
+import { Service } from 'homebridge';
+import {
+  SubaruPluginService,
+  SubaruPluginServiceContext,
+} from './SubaruPluginService.js';
 
 export class RemoteStopService extends SubaruPluginService {
   public service: Service;
@@ -10,11 +13,14 @@ export class RemoteStopService extends SubaruPluginService {
     const { hap } = context;
 
     this.service = new hap.Service.Switch(
-      this.serviceName("Remote Stop"),
-      "remote-stop",
+      this.serviceName('Remote Stop'),
+      'remote-stop',
     );
 
-    this.service.setCharacteristic(hap.Characteristic.ConfiguredName, this.serviceName("Remote Stop"));
+    this.service.setCharacteristic(
+      hap.Characteristic.ConfiguredName,
+      this.serviceName('Remote Stop'),
+    );
 
     this.service
       .getCharacteristic(hap.Characteristic.On)
@@ -27,7 +33,9 @@ export class RemoteStopService extends SubaruPluginService {
           await this.remoteStop();
           // Turn the switch back off after a brief delay
           setTimeout(() => {
-            this.service.getCharacteristic(hap.Characteristic.On).updateValue(false);
+            this.service
+              .getCharacteristic(hap.Characteristic.On)
+              .updateValue(false);
           }, 1000);
         }
       });
@@ -39,11 +47,11 @@ export class RemoteStopService extends SubaruPluginService {
   private async remoteStop(): Promise<void> {
     const { subaru, log } = this.context;
     try {
-      log.info("Remote Stopping Vehicle");
+      log.info('Remote Stopping Vehicle');
       await subaru.remoteStopVehicle();
-      log.info("Vehicle Stopped Remotely");
+      log.info('Vehicle Stopped Remotely');
     } catch (error) {
-      log.error("Failed to remotely stop vehicle:", error);
+      log.error('Failed to remotely stop vehicle:', error);
       throw error;
     }
   }

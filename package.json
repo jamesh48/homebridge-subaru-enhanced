@@ -3,7 +3,7 @@
   "displayName": "Homebridge Subaru",
   "type": "module",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "A short description about what your plugin does.",
   "author": "James Hrivnak",
   "license": "Apache-2.0",

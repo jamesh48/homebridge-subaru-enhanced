@@ -1,14 +1,13 @@
 import {
-  CharacteristicGetCallback,
   CharacteristicValue,
   HAP,
   HAPStatus,
   Logging,
   Nullable,
   Service,
-} from "homebridge";
-import { SubaruApi } from "../util/api";
-import { SubaruPluginConfig } from "../util/types";
+} from 'homebridge';
+import { SubaruApi } from '../util/api';
+import { SubaruPluginConfig } from '../util/types';
 
 export type SubaruPluginServiceContext = {
   log: Logging;
@@ -35,7 +34,7 @@ export abstract class SubaruPluginService {
     const { config } = this.context;
 
     // Optional prefix to prepend to all accessory names.
-    const prefix = (config.prefix ?? "").trim();
+    const prefix = (config.prefix ?? '').trim();
 
     this.context.log(`${prefix} ${name}`);
 
@@ -50,7 +49,9 @@ export abstract class SubaruPluginService {
   // Typesafe callbackify.
   //
 
-  protected createSetter<T extends CharacteristicValue>(setter: Setter<T>): SetterCallback {
+  protected createSetter<T extends CharacteristicValue>(
+    setter: Setter<T>,
+  ): SetterCallback {
     return (value, callback) => {
       setter
         .call(this, value as T)
@@ -60,7 +61,11 @@ export abstract class SubaruPluginService {
   }
 }
 
-type Setter<T extends CharacteristicValue> = (this: any, value: T) => Promise<Nullable<T> | void>;
+type Setter<T extends CharacteristicValue> = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  this: any,
+  value: T,
+) => Promise<Nullable<T> | void>;
 
 type SetterCallback = (
   value: CharacteristicValue,
