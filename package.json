@@ -2,7 +2,7 @@
   "name": "homebridge-subaru-enhanced",
   "displayName": "Homebridge Subaru Enhanced",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "A short description about what your plugin does.",
   "author": "James Hrivnak",
