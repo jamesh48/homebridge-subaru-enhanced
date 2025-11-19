@@ -4,7 +4,7 @@
   "type": "module",
   "version": "1.0.1",
   "private": false,
-  "description": "A short description about what your plugin does.",
+  "description": "Remote access subaru starlink services from the home app",
   "author": "James Hrivnak",
   "license": "Apache-2.0",
   "homepage": "https://github.com/jamesh48/homebridge-subaru-enhanced",
@@ -24,7 +24,7 @@
   ],
   "main": "dist/src/index.js",
   "engines": {
-    "node": "^18.20.4 || ^20.18.0 || ^22.10.0",
+    "node": "^18.20.4 || ^20.18.0 || ^22.10.0 || ^24.0.0",
     "homebridge": "^1.8.0 || ^2.0.0-beta.0"
   },
   "scripts": {

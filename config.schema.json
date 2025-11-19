@@ -1,46 +1,48 @@
 {
   "pluginAlias": "HomebridgeSubaruEnhanced",
-  "pluginType": "accessory",
+  "pluginType": "platform",
   "singular": true,
   "strictValidation": false,
   "schema": {
     "type": "object",
+    "required": [
+      "name",
+      "deviceId",
+      "username",
+      "password",
+      "lastSelectedVehicleKey",
+      "pin"
+    ],
     "properties": {
       "name": {
         "title": "Name",
         "type": "string",
-        "required": true,
         "default": "Outback"
       },
       "deviceId": {
         "title": "Device ID",
         "type": "string",
-        "required": true,
         "default": ""
       },
       "username": {
         "title": "Username",
         "type": "string",
-        "required": true,
         "default": ""
       },
       "password": {
         "title": "Password",
         "type": "string",
-        "required": true,
         "default": ""
       },
       "lastSelectedVehicleKey": {
         "title": "Last Selected Vehicle Key",
         "type": "string",
-        "default": "",
-        "required": true
+        "default": ""
       },
       "pin": {
         "title": "Pin Code",
         "type": "string",
-        "default": "0000",
-        "required": true
+        "default": "0000"
       },
       "prefix": {
         "title": "Services Prefix",
@@ -59,21 +61,21 @@
         "title": "Horn on Remote Start",
         "type": "boolean",
         "default": true,
-        "description": "Sound the horn when remote starting the vehicle"
+        "description": "Sound the horn when remote starting the vehicle, defaults to true"
       },
       "runTimeMinutes": {
         "title": "Remote Start Run Time (minutes)",
         "type": "number",
         "enum": [5, 10],
         "default": 10,
-        "description": "How long the engine should run"
+        "description": "How long the engine should run, defaults to 10 minutes"
       },
       "delay": {
         "title": "Remote Start Delay (minutes)",
         "type": "number",
         "enum": [0, 1, 5, 10],
         "default": 0,
-        "description": "Delay before starting the engine"
+        "description": "Delay before starting the engine, defaults to immediately"
       }
     }
   }
