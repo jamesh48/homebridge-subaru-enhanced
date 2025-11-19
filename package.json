@@ -2,7 +2,7 @@
   "name": "homebridge-subaru-enhanced",
   "displayName": "Homebridge Subaru Enhanced",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "description": "Remote access subaru starlink services from the home app",
   "author": "James Hrivnak",
