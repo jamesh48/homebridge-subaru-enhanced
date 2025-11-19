@@ -4,6 +4,7 @@ import {
   HAPStatus,
   Logging,
   Nullable,
+  PlatformAccessory,
   Service,
 } from 'homebridge';
 import { SubaruApi } from '../util/api';
@@ -14,6 +15,7 @@ export type SubaruPluginServiceContext = {
   hap: HAP;
   config: SubaruPluginConfig;
   subaru: SubaruApi;
+  accessory: PlatformAccessory;
 };
 
 export abstract class SubaruPluginService {

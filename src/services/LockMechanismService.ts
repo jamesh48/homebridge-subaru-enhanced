@@ -12,15 +12,20 @@ export class LockMechanismService extends SubaruPluginService {
   constructor(context: SubaruPluginServiceContext) {
     super(context);
 
-    const { hap } = context;
+    const { hap, accessory } = context;
 
-    // Create two Switch services - one for Lock and one for Unlock
-    this.lockService = new hap.Service.Switch(this.serviceName('Lock'), 'lock');
+    // Get or create two Switch services - one for Lock and one for Unlock
+    this.lockService =
+      accessory.getServiceById(hap.Service.Switch, 'lock') ||
+      accessory.addService(
+        new hap.Service.Switch(this.serviceName('Lock'), 'lock'),
+      );
 
-    this.unlockService = new hap.Service.Switch(
-      this.serviceName('Unlock'),
-      'unlock',
-    );
+    this.unlockService =
+      accessory.getServiceById(hap.Service.Switch, 'unlock') ||
+      accessory.addService(
+        new hap.Service.Switch(this.serviceName('Unlock'), 'unlock'),
+      );
 
     this.lockService.setCharacteristic(
       hap.Characteristic.ConfiguredName,

@@ -10,12 +10,14 @@ export class RemoteStartService extends SubaruPluginService {
   constructor(context: SubaruPluginServiceContext) {
     super(context);
 
-    const { hap } = context;
+    const { hap, accessory } = context;
 
-    this.service = new hap.Service.Switch(
-      this.serviceName('Remote Start'),
-      'remote-start',
-    );
+    // Get or create the service
+    this.service =
+      accessory.getServiceById(hap.Service.Switch, 'remote-start') ||
+      accessory.addService(
+        new hap.Service.Switch(this.serviceName('Remote Start'), 'remote-start'),
+      );
 
     this.service.setCharacteristic(
       hap.Characteristic.ConfiguredName,
