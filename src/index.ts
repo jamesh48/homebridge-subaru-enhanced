@@ -13,8 +13,8 @@ let hap: HAP;
 export default (api: API) => {
   hap = api.hap;
   api.registerAccessory(
-    'homebridge-subaru',
-    'HomebridgeSubaru',
+    'homebridge-subaru-enhanced',
+    'HomebridgeSubaruEnhanced',
     SubaruAccessory,
   );
 };

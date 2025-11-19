@@ -1,6 +1,6 @@
 {
-  "name": "homebridge-subaru",
-  "displayName": "Homebridge Subaru",
+  "name": "homebridge-subaru-enhanced",
+  "displayName": "Homebridge Subaru Enhanced",
   "type": "module",
   "version": "1.0.0",
   "private": false,

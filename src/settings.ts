@@ -1,9 +1,9 @@
 /**
  * This is the name of the platform that users will use to register the plugin in the Homebridge config.json
  */
-export const PLATFORM_NAME = 'HomebridgeSubaru';
+export const PLATFORM_NAME = 'HomebridgeSubaruEnhanced';
 
 /**
  * This must match the name of your plugin as defined the package.json `name` property
  */
-export const PLUGIN_NAME = 'homebridge-subaru';
+export const PLUGIN_NAME = 'homebridge-subaru-enhanced';
