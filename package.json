@@ -7,16 +7,20 @@
   "description": "A short description about what your plugin does.",
   "author": "James Hrivnak",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/jamesh48/homebridge-subaru",
+  "homepage": "https://github.com/jamesh48/homebridge-subaru-enhanced",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jamesh48/homebridge-subaru"
+    "url": "https://github.com/jamesh48/homebridge-subaru--enhanced"
   },
   "bugs": {
-    "url": "https://github.com/jamesh48/homebridge-subaru/issues"
+    "url": "https://github.com/jamesh48/homebridge-subaru-enhanced/issues"
   },
   "keywords": [
-    "homebridge-plugin"
+    "homebridge-plugin",
+    "homebridge-subaru-enhanced",
+    "homebridge",
+    "subaru",
+    "enhanced"
   ],
   "main": "dist/src/index.js",
   "engines": {
